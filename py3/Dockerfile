@@ -6,7 +6,10 @@ RUN apt-get update && apt-get install -y \
     tzdata \
     && ln -sf /usr/share/zoneinfo/Asia/Tokyo /etc/localtime \
     && apt-get clean \
-    && rm -rf /var/lib/apt/lists/* \
+    && rm -rf /var/lib/apt/lists/*
+
+RUN apt-get update && apt-get install -y \
+    libgl1-mesa-glx
 
 ENV TZ=Asia/Tokyo
 
@@ -50,4 +53,5 @@ RUN pip install --no-cache-dir \
     lightgbm \
     mediapipe \
     ultralytics \
-    jupyterlab-language-pack-ja-JP
+    jupyterlab-language-pack-ja-JP \
+    jupyter-autotime
